@@ -4,7 +4,7 @@
   "description": "Next.js on Firebase cloud functions",
   "main": "index.js",
   "scripts": {
-    "next": "npm run build:firebase && cd src/app && npm install && npm run dev",
+    "dev": "npm run build:firebase && cd src/app && npm install && npm run dev",
     "clean": "rimraf dist",
     "build:all": "npm run clean && npm run build:firebase && npm run build:next && npm run copy",
     "build:next": "cd src/app && npm install && npm run build",
