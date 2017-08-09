@@ -1,0 +1,24 @@
+{
+  "name": "next-fire",
+  "version": "1.0.0",
+  "description": "Next.js on Firebase cloud functions",
+  "main": "index.js",
+  "scripts": {
+    "next": "npm run build:firebase && cd src/app && npm install && npm run dev",
+    "clean": "rimraf dist",
+    "build:all": "npm run clean && npm run build:firebase && npm run build:next && npm run copy",
+    "build:next": "cd src/app && npm install && npm run build",
+    "build:firebase": "babel src/functions -d dist/functions --presets=env --copy-files --ignore node_modules && cd dist/functions && npm install",
+    "copy": "ncp src/public dist/public",
+    "serve": "npm run build:all && firebase serve",
+    "deploy": "npm run build:all && firebase deploy"
+  },
+  "author": "Emmanuel Pilande",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "ncp": "^2.0.0",
+    "rimraf": "^2.6.1"
+  }
+}
